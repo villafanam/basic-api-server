@@ -7,12 +7,8 @@ module.exports = (sequelizeDatabase, DataTypes) =>
       type: DataTypes.STRING,
       allowNull: false,
     },
-    weight: {
-      type: DataTypes.FLOAT,
-      allowNull: true,
-    },
-    price: {
-      type: DataTypes.FLOAT,
+    type: {
+      type: DataTypes.STRING,
       allowNull: true,
     },
   });

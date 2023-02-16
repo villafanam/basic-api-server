@@ -10,10 +10,12 @@ router.get('/customer', async (req, res, next) => {
   res.status(200).send(customers);
 });
 
-router.get('/customer/1', async (req, res, next) => {
+router.get('/customer/:id', async (req, res, next) => {
+  const { id } = req.params;
   const customers = await customerModel.findOne({
     where: {
-      id: req.query.id,
+      id,
+      // id: req.params.id,
     },
   });
   res.status(200).send(customers);
@@ -28,40 +30,31 @@ router.post('/customer', async (req, res, next) => {
   }
 });
 
-router.put('/customer/1', async (req, res, next) => {
-  // let updatedBody = req.body;
-
-  // const oneCustomer = await customerModel.findOne({
-  //   where: {
-  //     id: req.query.id,
-  //   },
-  // });
-  
-  // const updatedCustomer = await oneCustomer.update(updatedBody);
-
-  const updatedCustomer = await customerModel.update(req.body, {
+router.put('/customer/:id', async (req, res, next) => {
+  const { id } = req.params;
+  const foundCust = await customerModel.findOne({
     where: {
-      id: req.query.id,
+      id,
+      // id: req.params.id,
     },
-    returning: true,
   });
- 
-  res.status(200).send(updatedCustomer[1]);
+
+  const updatedCustomer = await foundCust.update(req.body);
+  // const updatedCustomer = await customerModel.update(req.body, {
+  //   where: {
+  //     id: req.params.id,
+  //   },
+  //   returning: true,
+  // });
+  //console.log(updatedCustomer[1].dataValues);
+  res.status(200).send(updatedCustomer);
 });
 
-router.delete('/customer/1', async (req, res, next) => {
+router.delete('/customer/:id', async (req, res, next) => {
 
-  // const oneCustomer = await customerModel.findOne({
-  //   where: {
-  //     id: req.query.id,
-  //   },
-  // });
-  
-  // const customerToDelete = await customerModel.destroy(oneCustomer);
-
-  const customer = await customerModel.destroy({
+  await customerModel.destroy({
     where: {
-      id: req.query.id,
+      id: req.params.id,
     },
   });
 
