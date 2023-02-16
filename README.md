@@ -11,15 +11,16 @@ Build a REST API using Express, by creating a proper series of endpoints that pe
 ### Links and Resources
 
 - [GitHub Actions ci/cd](https://github.com/rkgallaway/server-deployment-practice-d51/actions) 
-- [back-end server url](http://xyz.com) (when applicable)
-- [front-end application](http://xyz.com) (when applicable)
+- [GitHub PR]()
+- [back-end server url](http://xyz.com)
+
 
 ### Setup
 
-#### `.env` requirements (where applicable)
+#### `.env` requirements 
 
-for now I have none and do not require one
-
+- `PORT=3001`
+- `DATABASE_URL=postgres://localhost:5432/api-app`
 
 #### How to initialize/run your application (where applicable)
 
@@ -30,14 +31,28 @@ for now I have none and do not require one
 #### Features / Routes
 
 - Feature One: Details of feature
-- GET : `/hello` - specific route to hit
+- GET : `/customer` - Get all customers
+- GET : `/customer/1` - Get one customer
+- POST : `/customer` - Create a customer
+- PUT : `/customer/1` - Update one customer
+- Delete : `/customer/1` - Delete one customer
 
 #### Tests
 
-- How do you run tests?
-- Any tests of note?
-- Describe any tests that you did not complete, skipped, etc
+- `npm test` in terminal to run tests
+- tests
+  - Create a customer
+  - Get all customers
+  - Get one customer
+  - Update one customer (Incomplete)
+  - Delete one customer
+  - handles invalid request route
+  - handles invalid request method
 
 #### UML
 
-Link to an image of the UML for your application and response to events
+![Lab 03 UML](/assests/lab03_uml.png)
+
+#### Attribution
+
+[Class 03 GitHub Repo](https://github.com/codefellows/seattle-code-javascript-401d51/tree/main/class-03)
