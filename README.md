@@ -32,10 +32,10 @@ Build a REST API using Express, by creating a proper series of endpoints that pe
 
 - Feature One: Details of feature
 - GET : `/customer` - Get all customers
-- GET : `/customer/1` - Get one customer
+- GET : `/customer/:id` - Get one customer
 - POST : `/customer` - Create a customer
-- PUT : `/customer/1` - Update one customer
-- Delete : `/customer/1` - Delete one customer
+- PUT : `/customer/:id` - Update one customer
+- Delete : `/customer/:id` - Delete one customer
 
 #### Tests
 
